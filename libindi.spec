@@ -10,10 +10,8 @@ License: LGPLv2+ and GPLv2+
 
 Provides: libindi = %{version}-%{release}
 
-%forgemeta -i
-
 URL: http://www.indilib.org
-Source0: https://github.com/libindi/%{name}/archive/%{name}-master.tar.gz
+Source0: https://github.com/indilib/%{name}/archive/master.tar.gz
 Patch0:  CMakeLists.txt.patch
 
 BuildRequires: cmake
@@ -67,7 +65,7 @@ Requires: %{name}-libs%{?_isa} = %{version}-%{release}
 Static library needed to develop a %{name} application
 
 %prep
-%setup -n %{name}-master
+%setup -n master
 # For Fedora we want to put udev rules in {_udevrulesdir}
 sed -i 's|/lib/udev/rules.d|%{_udevrulesdir}|g' CMakeLists.txt
 chmod -x drivers/telescope/pmc8driver.h
