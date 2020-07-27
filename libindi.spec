@@ -8,13 +8,10 @@ Summary: Instrument Neutral Distributed Interface
 License: LGPLv2+ and GPLv2+
 # See COPYRIGHT file for a description of the licenses and files covered
 
-Obsoletes: libindi
 Provides: libindi = %{version}-%{release}
 
-%forgemeta -i
-
 URL: http://www.indilib.org
-Source0: https://github.com/libindi/%{name}/archive/%{name}-master.tar.gz
+Source0: https://github.com/indilib/%{name}/archive/master.tar.gz
 Patch0:  CMakeLists.txt.patch
 
 BuildRequires: cmake
@@ -68,7 +65,7 @@ Requires: %{name}-libs%{?_isa} = %{version}-%{release}
 Static library needed to develop a %{name} application
 
 %prep
-%forgesetup
+%setup -n master
 # For Fedora we want to put udev rules in {_udevrulesdir}
 sed -i 's|/lib/udev/rules.d|%{_udevrulesdir}|g' CMakeLists.txt
 chmod -x drivers/telescope/pmc8driver.h
