@@ -14,7 +14,7 @@ Provides: libindi = %{version}-%{release}
 %forgemeta -i
 
 URL: http://www.indilib.org
-Source0: %{forgesource}
+Source0: https://github.com/libindi/%{name}/archive/%{name}-master.tar.gz
 Patch0:  CMakeLists.txt.patch
 
 BuildRequires: cmake
