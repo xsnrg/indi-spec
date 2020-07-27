@@ -1,4 +1,4 @@
-%global forgeurl https://github.com/indilib/indi/
+%global forgeurl https://github.com/indilib/indi.git
 
 Name: indi
 Version: 1.8.6.git
@@ -11,7 +11,7 @@ License: LGPLv2+ and GPLv2+
 Obsoletes: libindi
 Provides: libindi = %{version}-%{release}
 
-%forgemeta
+%forgemeta -i
 
 URL: http://www.indilib.org
 Source0: %{forgesource}
