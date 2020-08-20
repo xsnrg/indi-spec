@@ -2,7 +2,7 @@
 
 Name: indi
 Version: 1.8.6.git
-Release: 9%{?dist}
+Release: 10%{?dist}
 Summary: Instrument Neutral Distributed Interface
 
 License: LGPLv2+ and GPLv2+
