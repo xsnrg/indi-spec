@@ -64,8 +64,9 @@ Requires: %{name}-libs%{?_isa} = %{version}-%{release}
 %description static
 Static library needed to develop a %{name} application
 
-%prep
+%prep -v
 %setup
+
 # For Fedora we want to put udev rules in {_udevrulesdir}
 sed -i 's|/lib/udev/rules.d|%{_udevrulesdir}|g' CMakeLists.txt
 chmod -x drivers/telescope/pmc8driver.h
@@ -78,12 +79,13 @@ chmod -x drivers/telescope/pmc8driver.cpp
 # Disable LTO
 %define _lto_cflags %{nil}
 
-%cmake .
-make VERBOSE=1 %{?_smp_mflags}
+%cmake ..
+%cmake_build
+#make VERBOSE=1 %{?_smp_mflags}
 
 %install
-make install DESTDIR=%{buildroot}
-
+%cmake_install
+#make install DESTDIR=%{buildroot}
 %ldconfig_scriptlets libs
 
 %files
