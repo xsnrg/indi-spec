@@ -1,5 +1,4 @@
 %undefine __cmake_in_source_build
-%global forgeurl https://github.com/indilib/indi.git
 
 Name: indi
 Version: 1.8.7.git
@@ -15,6 +14,7 @@ URL: http://www.indilib.org
 Source0: https://github.com/indilib/%{name}/archive/master.tar.gz
 
 BuildRequires: cmake
+BuildRequires: extra-cmake-modules
 BuildRequires: libfli-devel
 BuildRequires: libnova-devel
 BuildRequires: qt5-qtbase-devel
@@ -65,7 +65,7 @@ Requires: %{name}-libs%{?_isa} = %{version}-%{release}
 Static library needed to develop a %{name} application
 
 %prep -v
-%setup
+%setup -n %{name}-master
 
 # For Fedora we want to put udev rules in {_udevrulesdir}
 sed -i 's|/lib/udev/rules.d|%{_udevrulesdir}|g' CMakeLists.txt
@@ -79,7 +79,7 @@ chmod -x drivers/telescope/pmc8driver.cpp
 # Disable LTO
 %define _lto_cflags %{nil}
 
-%cmake ..
+%cmake .
 %cmake_build
 #make VERBOSE=1 %{?_smp_mflags}
 
