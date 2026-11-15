@@ -18,9 +18,12 @@ rlancaste/stellarsolver#186, knro/ekosdebugger#7. knro merges PRs personally, of
 within hours.
 
 **COPR pulls specs straight from the upstream repos.** The old `xsnrg/*-spec`
-dist-git repos are dead — nothing builds from them; local clones were removed
-Nov 15 2026 (bundles in `~/indi-fix/archive/`). GitHub-side spec repos and the
-xsnrg forks can be archived too.
+dist-git repos and the four xsnrg forks (indi, indi-3rdparty, stellarsolver,
+ekosdebugger) were **deleted on GitHub 2026-11-15** after verifying zero open PRs
+and zero commits not already contained upstream. Local clones had been removed
+earlier the same day. Only `xsnrg/indi-spec` (this repo) survives as the hub.
+(`xsnrg/kstars-spec` was never on GitHub — its remote is `invent.kde.org`; delete
+there separately if desired.)
 
 ## Manual rebuild rules (the workflow that works)
 
@@ -102,10 +105,8 @@ xsnrg forks can be archived too.
   0 failures; merge timestamps; cleanup log).
 - `~/indi-fix/` — kept: PR/comment bodies, `copr-source-snapshot.json`,
   `revert_to_upstream.py`, build-id lists, `wave-plan.json` (lib/driver dep map).
-- `~/indi-fix/archive/` — git bundles of every deleted repo (all refs) + patches of
-  unpushed local commits (rtl-sdr/usbfs spec edits from the 1.8.8 era in
-  `patches/`) + snapshots of dirty working files. `git bundle unbundle` or
-  `git fetch <bundle> refs/...` to recover.
+  (A temporary `archive/` of pre-campaign repo bundles existed Nov 15 2026 and was
+  since found to contain nothing not fully superseded upstream — nothing was lost.)
 - `check-deps.sh` (this repo) — BuildRequires canary described above.
 - Historical PR/issue archaeology: the four PRs listed at the top contain the full
   root-cause writeups in their descriptions and comments.
