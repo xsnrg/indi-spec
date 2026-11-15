@@ -1,0 +1,18 @@
+# Historical: pre-2026-11 libindi.spec scratch (removed with the file, 2026-11-15)
+
+Uncommitted working-tree edits that existed on the now-deleted local
+libindi.spec at removal time, as a diff vs committed HEAD (bade9dc):
+
+```diff
+--- a/libindi.spec
++++ b/libindi.spec
+@@ line-order churn (cosmetic only)
++Summary: Instrument Neutral Distributed Interface        (moved above Version)
++URL: http://www.indilib.org                              (moved into License block)
+-%setup -n %{name}-master
++%setup
+```
+
+Assessment: cosmetic reordering plus an attempted drop of the `-n %{name}-master`
+%setup override. All moot — COPR builds indilib/indi:master spec/libindi.spec
+(stamp-file Release etc., indilib/indi#2534) and this file had no build role.

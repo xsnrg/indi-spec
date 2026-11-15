@@ -1,1 +1,9 @@
-/.idea/
+# IDE / editor cruft
+.idea/
+.vscode/
+*.iml
+
+# build / test droppings
+results/
+*.rpm
+*.src.rpm
